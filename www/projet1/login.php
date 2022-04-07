@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once 'config.php';
 ?>
 <!DOCTYPE html>
@@ -16,42 +16,21 @@ include 'header.php';
 
 <?php
 
-if(isset($_POST['email']) && isset($_POST['password']))
+
+
+if(isset($_GET['submit']))
 {
-    $Email = htmlspecialchars($_POST['email']);
-    $Password = htmlspecialchars($_POST['password']);
-
-
-    $sql = "SELECT * FROM utilisateur WHERE email = '" .$Email. "' and mdp = '" .$Password. "' ";
-    $sql5 = "SELECT photo FROM utilisateur ORDER BY id asc";
-
-
+    $form = $_GET;
+    $email = htmlspecialchars['email'];
+    $password = htmlspecialchars['password'];
+    $_SESSION["user"] = $email;
+    $sql = "SELECT * FROM utilisateur WHERE email='" . $email . "' and mdp = '" . $password . "'";
     $result = mysqli_query($bdd, $sql);
     $row = mysqli_num_rows($result);
-    $result5 = mysqli_query($bdd, $sql5);
-
-
-
-
-
-
     if($row > 0)
     {
-            if (mysqli_num_rows($result5) > 0){
-                while($row = mysqli_fetch_array($result5))
-                {?>
-                    <img src="img/jpg<?php echo base64_encode($row["photo"]); ?>" height="15%" width="15%"/><?php
-       header('Location:connexion.php?login_err=success');
-                }
-                }
-
-
-
-    }
-    else {header('Location:connexion.php?login_err=fail');}
-
-
-}
+    echo 'login success';
+}echo $_SESSION["user"];}
 ?>
 
 <div class="formulaire_connexion">
@@ -77,7 +56,7 @@ if(isset($_POST['email']) && isset($_POST['password']))
 
 
     <div class="connexion">
-    <form action="connexion.php" method="GET">
+    <form action="login.php" method="GET">
 
         <p>Bonjour, connectez-vous</p>
         <section>

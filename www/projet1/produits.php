@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require 'config.php';
 
 ?>
@@ -11,7 +11,7 @@ require 'config.php';
     <link rel="stylesheet" href="style/css"/>
 </head>
 <body>
-
+<?php $_SESSION["unnegro"] = "jsuis vraiment tres bre-som";?>
 <?php
 require 'header.php';
 ?>
@@ -23,23 +23,21 @@ if (mysqli_num_rows($result) > 0)
 {
     while($row = mysqli_fetch_array($result))
     {
-    ?>
+        ?>
+
         <div class="galerie">
-         <form method="post" action="panier.php?action=add&id=<?php echo $row["id"]; ?>">
-             <div class="container">
-        <img src="<?php echo $row["href"]; ?>" height="15%" width="15%"/>
-        <?php echo $row["produit"]; ?><br/>
-        <?php echo $row["prix"]; ?>
-        <input type="text" name="quantity" class="form-control" value="1" />
 
-             <input type="hidden" name="hidden_name" value="<?php echo $row["produit"]; ?>" />
-             <input type="hidden" name="hidden_price" value="<?php echo $row["prix"]; ?>" />
-                 <input type="submit" name="add_to_cart" value="ajouter au panier"/>
+                <img src ="<?php echo $row["href"]; ?>" height ="15%" width="15%">
+            <a href="panier.php?product_id=<?=$row['id']?>">
+                <input type="submit" value="Ajouter au panier"/>
+            </a>
 
-             </div>
-        </form>
+
+
+
         </div>
-<?php
+
+        <?php
     }
 }?>
 
@@ -49,6 +47,7 @@ if (mysqli_num_rows($result) > 0)
 
 <?php
 include 'footer.php';
+
 ?>
 </body>
 </html>

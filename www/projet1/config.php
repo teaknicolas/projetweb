@@ -10,3 +10,8 @@ $bdd->query("SET CHARACTER SET utf8");
 
 
 
+
+
+
+
+
