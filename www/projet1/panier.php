@@ -1,14 +1,11 @@
 <?php
 session_start();
 require 'config.php';
-
 ?>
 
 <?php
 // display the results
-echo "ma phrase préféré est " . $_SESSION["unnegro"] . ".";
-
-
+if(isset($_GET))
 ?>
 
 <!DOCTYPE html>

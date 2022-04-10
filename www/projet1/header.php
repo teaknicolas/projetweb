@@ -13,6 +13,7 @@ require 'config.php';
     <ul>
         <li><a href="index.php">GeekJGL</a></li>
         <li><a href="produits.php">Processeurs</a></li>
+        <li style="float:right"><a class="active" href="deconnexion.php">Deconnexion</a></li>
         <li style="float:right"><a class="active" href="panier.php">panier</a></li>
         <li style="float:right"><a class="active" href="login.php">Connexion</a></li>
     </ul>

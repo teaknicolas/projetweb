@@ -18,20 +18,41 @@ include 'header.php';
 
 
 
-if(isset($_GET['submit']))
+if(isset($_GET['Continuer']))
 {
-    $form = $_GET;
-    $email = htmlspecialchars['email'];
-    $password = htmlspecialchars['password'];
-    $_SESSION["user"] = $email;
+        //one recupere les données des textbox
+    $email = $_GET['email'];
+    $password = $_GET['password'];
+
+    //fetch des données de la database
     $sql = "SELECT * FROM utilisateur WHERE email='" . $email . "' and mdp = '" . $password . "'";
     $result = mysqli_query($bdd, $sql);
-    $row = mysqli_num_rows($result);
-    if($row > 0)
+    $fetch = mysqli_fetch_array($result);
+    $usermail = $fetch['email'];
+    $userpassword = $fetch['mdp'];
+    $username = $fetch['pseudo'];
+    $user_id = $fetch['id'];
+    $_SESSION['user'] = $username;
+    $_SESSION['user_id'] = $user_id;
+
+
+
+    if($email == $usermail && $password == $userpassword)
     {
-    echo 'login success';
-}echo $_SESSION["user"];}
-?>
+
+
+        echo "vous êtes bien connecté " . $_SESSION['user'] . ". ";
+        echo "votre id est " . $_SESSION['user_id'] . ". ";
+
+        
+
+    }
+    else{
+        echo 'mauvais username ou password';
+    }
+
+}?>
+
 
 <div class="formulaire_connexion">
     <?php

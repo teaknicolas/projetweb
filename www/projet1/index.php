@@ -1,5 +1,9 @@
 <?php
+session_start();
 require_once 'config.php';
+?>
+<?php
+echo $_SESSION['user'];
 ?>
 <!DOCTYPE html>
 <html>
