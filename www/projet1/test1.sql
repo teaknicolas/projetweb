@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 12 avr. 2022 à 20:15
+-- Généré le : lun. 28 mars 2022 à 20:59
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `catalogue` (
 --
 
 INSERT INTO `catalogue` (`id`, `categorie`, `produit`, `prix`, `stock`, `description`, `href`) VALUES
-(1, 'Processeur', 'AMD RYZEN 5 3600', '200€', '7', 'AMD RYZEN 5 3600, socket : AM4, 3.6/4.2 GHZ, 6 core/12 threads, TDP : 65W, chipset CM : A320, A520, B350, B450, B550, X370, X470, X570', 'img/amdryzen53600.jpg'),
+(1, 'Processeur', 'AMD RYZEN 5 3600', '200€', '1', 'AMD RYZEN 5 3600, socket : AM4, 3.6/4.2 GHZ, 6 core/12 threads, TDP : 65W, chipset CM : A320, A520, B350, B450, B550, X370, X470, X570', 'img/amdryzen53600.jpg'),
 (2, 'Processeur', 'AMD RYZEN 7 3700x', '300€', '1', 'AMD RYZEN 7 3700x, socket : AM4, 3.6/4.4 GHZ, 8 core/16 threads, TDP : 65W, chipset CM : A320, A520, B350, B450, B550, X370, X470, X570', 'img/amdryzen73700x.jpg');
 
 -- --------------------------------------------------------
@@ -79,26 +79,13 @@ INSERT INTO `cg` (`id`, `produit`, `description`, `prix`, `stock`) VALUES
 DROP TABLE IF EXISTS `panier`;
 CREATE TABLE IF NOT EXISTS `panier` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_utilisateur` int(11) NOT NULL,
-  `qte` int(11) NOT NULL,
-  `id_produit` int(11) NOT NULL,
+  `catégorie` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `produit` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prix` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stock` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `panier`
---
-
-INSERT INTO `panier` (`id`, `id_utilisateur`, `qte`, `id_produit`) VALUES
-(1, 72, 3, 2),
-(2, 72, 1, 1),
-(3, 75, 7, 2),
-(4, 72, 1, 2),
-(5, 75, 1, 13),
-(6, 75, 1, 2),
-(7, 75, 1, 2),
-(8, 72, 1, 2),
-(9, 75, 1, 2);
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 

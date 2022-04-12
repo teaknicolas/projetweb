@@ -3,10 +3,10 @@ session_start();
 require 'config.php';
 ?>
 
-<?php
-// display the results
-if(isset($_GET))
-?>
+
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -19,10 +19,17 @@ if(isset($_GET))
 <?php
 require 'header.php';
 ?>
+<?php
 
 
+$array[] = $_SESSION[$idproduit];
+foreach($_SESSION[$idproduit] as $val){
 
-</div>
+    echo($val);
+}
+?>
+
+
 <?php
 include 'footer.php';
 

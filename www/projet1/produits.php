@@ -34,14 +34,16 @@ if($fetch_row > 0){
             <br>
             <?= $data['prix']; ?>
 
-            <a href="addproduct.php?product_id=<?php echo $data['id']; ?>">
+            <a href="addproduct.php?product_id=<?php echo $data['id']?>">
+
 
             <input type="submit" name="addpanier" value="Ajouter au panier"/>
-
-
-
-
             </a>
+
+
+
+
+
 
         </div>
 
