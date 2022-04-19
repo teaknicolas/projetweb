@@ -10,7 +10,7 @@ echo $_GET['product_id'];
 
 $idprtod = $_GET['product_id'];
 $iduser = $_SESSION['user_id'];
-$qte = 1;
+$qte = $_GET['qte'];
 
 $sql = "INSERT INTO panier VALUES (NULL, " . $iduser . "," . $qte . "," .  $idprtod . ")";
 
