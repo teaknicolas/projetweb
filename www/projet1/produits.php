@@ -45,7 +45,7 @@ if($fetch_row > 0){
             <?= $data['prix']; ?>
 
             <label for="quantity">Quantity (between 1 and 10):</label>
-            <input type="number" id="qte" name="qte" min="1" max="10">
+            <input type="number" id="qte" name="qte" min="1" max="10" value="1">
 
              <input type="hidden" name="product_id" value="<?php echo $data['id']?>">
 

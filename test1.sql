@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 12 avr. 2022 à 20:15
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Généré le :  jeu. 21 avr. 2022 à 21:38
+-- Version du serveur :  10.4.10-MariaDB
+-- Version de PHP :  7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `test1`
+-- Base de données :  `test1`
 --
 
 -- --------------------------------------------------------
@@ -33,19 +34,21 @@ CREATE TABLE IF NOT EXISTS `catalogue` (
   `categorie` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `produit` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `prix` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `stock` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `qte` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `href` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `catalogue`
 --
 
-INSERT INTO `catalogue` (`id`, `categorie`, `produit`, `prix`, `stock`, `description`, `href`) VALUES
-(1, 'Processeur', 'AMD RYZEN 5 3600', '200€', '7', 'AMD RYZEN 5 3600, socket : AM4, 3.6/4.2 GHZ, 6 core/12 threads, TDP : 65W, chipset CM : A320, A520, B350, B450, B550, X370, X470, X570', 'img/amdryzen53600.jpg'),
-(2, 'Processeur', 'AMD RYZEN 7 3700x', '300€', '1', 'AMD RYZEN 7 3700x, socket : AM4, 3.6/4.4 GHZ, 8 core/16 threads, TDP : 65W, chipset CM : A320, A520, B350, B450, B550, X370, X470, X570', 'img/amdryzen73700x.jpg');
+INSERT INTO `catalogue` (`id`, `categorie`, `produit`, `prix`, `qte`, `description`, `img`) VALUES
+(1, 'Processeur', 'AMD RYZEN 5 3600', '200€', '10', 'AMD RYZEN 5 3600, socket : AM4, 3.6/4.2 GHZ, 6 core/12 threads, TDP : 65W, chipset CM : A320, A520, B350, B450, B550, X370, X470, X570', 'img/amdryzen53600.jpg'),
+(2, 'Processeur', 'AMD RYZEN 7 3700x', '300€', '10', 'AMD RYZEN 7 3700x, socket : AM4, 3.6/4.4 GHZ, 8 core/16 threads, TDP : 65W, chipset CM : A320, A520, B350, B450, B550, X370, X470, X570', 'img/amdryzen73700x.jpg'),
+(4, 'Processeur', 'AMD RYZEN 3 3200g', '150€', '10', 'AMD RYZEN 3 3200g, socket : AM4, 3.6/4.4 GHZ, 4 core/8 threads, TDP : 65W, chipset CM : A320, A520, B350, B450, B550, X370, X470, X570', 'img/amdryzen33200g.jpg'),
+(6, 'Processeur', 'AMD RYZEN 5 5500', '204€', '10', 'AMD RYZEN 5 5500, socket : AM4, 3.2/4.2 GHZ, 6 core/12 threads, TDP : 65W, chipset CM : A320, A520, B350, B450, B550, X370, X470, X570', 'img/amdryzen55500.jpg');
 
 -- --------------------------------------------------------
 
@@ -83,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `panier` (
   `qte` int(11) NOT NULL,
   `id_produit` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `panier`
@@ -94,11 +97,19 @@ INSERT INTO `panier` (`id`, `id_utilisateur`, `qte`, `id_produit`) VALUES
 (2, 72, 1, 1),
 (3, 75, 7, 2),
 (4, 72, 1, 2),
-(5, 75, 1, 13),
+(18, 72, 1, 1),
 (6, 75, 1, 2),
 (7, 75, 1, 2),
 (8, 72, 1, 2),
-(9, 75, 1, 2);
+(9, 75, 1, 2),
+(10, 72, 1, 6),
+(11, 72, 0, 1),
+(12, 72, 0, 4),
+(13, 72, 0, 4),
+(14, 72, 4, 4),
+(15, 72, 10, 4),
+(16, 72, 4, 4),
+(17, 75, 5, 6);
 
 -- --------------------------------------------------------
 
@@ -112,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `pseudo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mdp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date_inscription` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_inscription` datetime NOT NULL DEFAULT current_timestamp(),
   `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
