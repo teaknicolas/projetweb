@@ -2,9 +2,7 @@
 session_start();
 require_once 'config.php';
 ?>
-<?php
-echo $_SESSION['user'];
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,11 +17,19 @@ include 'header.php';
 <div class="vitrine-titre">
 <p>PRODUITS NOUVEAUTES</p>
 </div>
-<div class="vitrine">
+<div class="row">
+
     <div class="img-vitrine1">
-        <a href="produits.php">
+        <a href="processeur.php">
 <img src="img/amdryzen73700x.jpg" width="20%"/>
             <p>AMD ryzen 7 3700x</p>
+    </div>
+
+
+    <div class="img-vitrine1">
+        <a href="Souris.php">
+            <img src="img/aocgm300b.jpg" width="20%"/>
+            <p>AOC GM 300B</p>
     </div>
 </div>
 <?php

@@ -19,6 +19,7 @@ require 'config.php';
 <?php
 require 'header.php';
 ?>
+
 <label>Voici Votre Panier</label>
 <?php
 
@@ -29,17 +30,18 @@ if($fetch_row > 0)
 {
     foreach ($result as $key => $v)
     {?>
-
+        <form method="get" action="">
         <div class="panier">
         <img src ="<?= $v['img'] ?>" height="10%" width="10%">
         <br>
         <label for="produit"><?php echo $v['produit'] ?></label>
         <br>
-            <label><?php echo 'Vous avez choisi : '?><?php echo $v['qte']; ?></label><?php echo ' quantitées de ce produit pour votre panier'?>
+            <label><?php echo 'Quantité : '?><?php echo $v['qte']; ?></label>
         </div>
-        <div class="supprimer">
-            <input type="submit" name="suppr_objet" value="Supprimer">
-        </div>
+
+
+        </form>
+
 
         <?php
     }

@@ -36,3 +36,7 @@ if (mysqli_num_rows($result) > 0)
                                 $prix = $_GET['prix'];
                                 $stock = $_GET['stock'];
                                 $href = $_GET['href'];
+
+                                <div class="supprimer">
+                                            <input type="submit" name="suppr_objet" value="Supprimer">
+                                        </div>

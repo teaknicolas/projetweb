@@ -60,10 +60,17 @@ footer
 text-align: center;
 }
 
-.vitrine
+.row
 {
-    margin-left: 5%;
-    margin-top: 10%;
+
+    display: flex;
+}
+
+.img-vitrine1
+{
+    flex: 33.33%;
+
+    padding: 5px;
 }
 
 .connexion{

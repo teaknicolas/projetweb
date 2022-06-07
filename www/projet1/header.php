@@ -7,8 +7,9 @@ require 'config.php';
     <title>projet</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -18,7 +19,8 @@ require 'config.php';
 <header>
     <ul>
         <li><a href="index.php">GeekJGL</a></li>
-        <li><a href="produits.php">Processeurs</a></li>
+        <li><a href="processeur.php">Processeurs</a></li>
+        <li><a href="souris.php">Souris</a></li>
         <li style="float:right"><a class="active" href="deconnexion.php">Deconnexion</a></li>
         <li style="float:right"><a class="active" href="panier.php">panier</a></li>
         <li style="float:right"><a class="active" href="login.php">Connexion</a></li>

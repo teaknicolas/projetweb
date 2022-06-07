@@ -22,20 +22,20 @@ $idprtod = $_GET['product_id'];
 $iduser = $_SESSION['user_id'];
 $qte = $_GET['qte'];
 
-$sql = "INSERT INTO panier VALUES (NULL, " . $iduser . "," . $qte . "," .  $idprtod . ")";
+$sql = "INSERT INTO panier VALUES (NULL, " . $iduser . "," . $qte . "," .  $idprtod . ")";//envoi les produits dans le panier
 
 mysqli_query($bdd, $sql);}
 ?>
 
 <?php
-$sql = "SELECT * FROM catalogue ORDER BY id ASC";
+$sql = "SELECT id,categorie,produit,prix,qte,img FROM catalogue WHERE categorie = 'Processeur' ";
 $result = mysqli_query($bdd, $sql);
 $fetch_row = mysqli_num_rows($result);
 
 if($fetch_row > 0){
     foreach($result as $key => $data)
     {?>
-        <form method="GET" action="produits.php">
+        <form method="GET" action="processeur.php">
         <div class="galerie">
 
             <img src ="<?=   $data['img']; ?>" height ="15%" width="15%"><br>
@@ -44,7 +44,7 @@ if($fetch_row > 0){
             <br>
             <?= $data['prix']; ?>
 
-            <label for="quantity">Quantity (between 1 and 10):</label>
+            <label for="quantity">Quantité (Entre 1 et 10):</label>
             <input type="number" id="qte" name="qte" min="1" max="10" value="1">
 
              <input type="hidden" name="product_id" value="<?php echo $data['id']?>">
@@ -56,22 +56,28 @@ if($fetch_row > 0){
 
         </div>
         </form>
+        <?php
 
+
+            ?>
 
         <?php
-    }}else{?>
-    <tr>
-    <td colspan="7"> <?='No data found'; ?></td>
-    </tr><?php
+
 }
-?>
+
+}
+
+
+
+
+
+    ?>
 
 
 
 
 
 <?php
-
 
 ?>
 </body>
